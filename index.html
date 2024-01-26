@@ -149,7 +149,7 @@
                             <div class="form-group">
                                 <label for="browser">จังหวัด</label>
                                 <input list="province-select" class="form-control" placeholder="จังหวัด" id="province"
-                                    autocomplete="off" onchange="amphureFetch('district-select')">
+                                    autocomplete="off" onchange="provinceSelect('province', 'district-select')">
                                 <datalist id="province-select"></datalist>
                             </div>
                         </div>
@@ -158,7 +158,8 @@
                                 <div class="form-group">
                                     <label for="browser">อำเภอ/เขต</label>
                                     <input list="district-select" class="form-control" placeholder="อำเภอ/เขต"
-                                        id="district" autocomplete="off">
+                                        id="district" autocomplete="off"
+                                        onchange="districtSelect('district', 'sub-select')">
                                     <datalist id="district-select"></datalist>
                                 </div>
                             </div>
@@ -169,7 +170,8 @@
                             <div class="form-group">
                                 <label for="browser">แขวง/ตำบล</label>
                                 <input list="sub-select" class="form-control" placeholder="แขวง/ตำบล" id="sub_district"
-                                    autocomplete="off" onchange="zipcodeid('sub_district', 'postcode')" disabled>
+                                    autocomplete="off" onchange="subDistrictSelect('sub_district', 'postcode')"
+                                    disabled>
                                 <datalist id="sub-select"></datalist>
                             </div>
                         </div>
@@ -178,7 +180,6 @@
                                 <label for="browser">รหัสไปรษณีย์</label>
                                 <input list="postcode-select" class="form-control" placeholder="รหัสไปรษณีย์"
                                     id="postcode" autocomplete="off" disabled>
-                                <datalist id="postcode-select"></datalist>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 let province = [];
-let amphure = [];
+let district = [];
 let zipCode = [];
 
 const urlProvince =
@@ -30,41 +30,35 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => console.error("เกิดข้อผิดพลาด:", error));
 });
 
-function amphureFetch(id) {
-  document.addEventListener("DOMContentLoaded", function () {
-    var apiUrl = urlDistrict;
+document.addEventListener("DOMContentLoaded", function () {
+  var apiUrl = urlDistrict;
 
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        DropdownAmphur(id, data);
-        amphure = data;
-      })
-      .catch((error) => console.log("เกิดข้อผิดพลาด:", error));
-  });
-}
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      district = data;
+    })
+    .catch((error) => console.log("เกิดข้อผิดพลาด:", error));
+});
 
-function subFetch() {
-  document.addEventListener("DOMContentLoaded", function () {
-    var apiUrl = urlSubDistrict;
+document.addEventListener("DOMContentLoaded", function () {
+  var apiUrl = urlSubDistrict;
 
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        Dropdownsub("sub-select", data);
-        Dropdownsub("sub-parent-select", data);
-        zipCode = data;
-      })
-      .catch((error) => console.log("เกิดข้อผิดพลาด:", error));
-  });
-}
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      zipCode = data;
+    })
+    .catch((error) => console.log("เกิดข้อผิดพลาด:", error));
+});
 
-function DropdownAmphur(id, selectedValue) {
+function DropdownDistrict(id, selectedValue) {
   var dropdownElement = document.getElementById(id);
 
   var defaultOption = document.createElement("option");
   defaultOption.value = "";
   defaultOption.text = "Select an option";
+  dropdownElement.innerHTML = "";
   dropdownElement.appendChild(defaultOption);
   var apiUrlDropdown2 =
     "https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_amphure.json";
@@ -83,12 +77,13 @@ function DropdownAmphur(id, selectedValue) {
     .catch((error) => console.error("เกิดข้อผิดพลาด:", error));
 }
 
-function Dropdownsub(sub_id, selectedValue) {
+function DropdownSub(sub_id, selectedValue) {
   var dropdownElement = document.getElementById(sub_id);
 
   var defaultOption = document.createElement("option");
   defaultOption.value = "";
   defaultOption.text = "Select an option";
+  dropdownElement.innerHTML = "";
   dropdownElement.appendChild(defaultOption);
   var apiUrlDropdown3 =
     "https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_tambon.json";
@@ -107,26 +102,25 @@ function Dropdownsub(sub_id, selectedValue) {
     .catch((error) => console.error("เกิดข้อผิดพลาด:", error));
 }
 
-function provinceid(province_id, district_id) {
-  provinceFetch();
-  var dropdowncontry = document.getElementById(province_id).value;
-  const response = province.filter((item) => item.name_th === dropdowncontry)[0]
-    .id;
-  DropdownAmphur(district_id, response);
+function provinceSelect(province_id, district_id) {
+  var dropdownCountry = document.getElementById(province_id).value;
+  const response = province.filter(
+    (item) => item.name_th === dropdownCountry
+  )[0].id;
+  DropdownDistrict(district_id, response);
 }
 
-function amphureid(amphure_id, sub_id) {
-  amphureFetch();
-  var dropdowncontry = document.getElementById(amphure_id).value;
-  const response = amphure.filter((item) => item.name_th === dropdowncontry)[0]
-    .id;
-  Dropdownsub(sub_id, response);
+function districtSelect(district_id, sub_id) {
+  var dropdownCountry = document.getElementById(district_id).value;
+  const response = district.filter(
+    (item) => item.name_th === dropdownCountry
+  )[0].id;
+  DropdownSub(sub_id, response);
 }
 
-function zipcodeid(elementid, postcode_id) {
-  subFetch();
-  var dropdowncontry = document.getElementById(elementid).value;
-  const response = zipCode.filter((item) => item.name_th === dropdowncontry)[0]
+function subDistrictSelect(subId, postcode_id) {
+  var dropdownCountry = document.getElementById(subId).value;
+  const response = zipCode.filter((item) => item.name_th === dropdownCountry)[0]
     .zip_code;
   document.getElementById(postcode_id).value = response;
 }

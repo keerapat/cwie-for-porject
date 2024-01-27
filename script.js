@@ -79,7 +79,6 @@ function DropdownDistrict(id, selectedValue) {
 
 function DropdownSub(sub_id, selectedValue) {
   var dropdownElement = document.getElementById(sub_id);
-
   var defaultOption = document.createElement("option");
   defaultOption.value = "";
   defaultOption.text = "Select an option";
@@ -100,6 +99,7 @@ function DropdownSub(sub_id, selectedValue) {
       });
     })
     .catch((error) => console.error("เกิดข้อผิดพลาด:", error));
+  console.log(dropdownElement);
 }
 
 function provinceSelect(province_id, district_id) {

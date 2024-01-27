@@ -233,8 +233,8 @@
                             <div class="form-group">
                                 <label for="province_parent">จังหวัด</label>
                                 <input type="text" class="form-control" name="province_parent" id="province_parent"
-                                    placeholder="จังหวัด" list="province-parent-select"
-                                    onchange="provinceSelect('province', 'district-select')" />
+                                    placeholder="จังหวัด" list="province-parent-select" autocomplete="off"
+                                    onchange="provinceSelect('province_parent', 'district-parent-select')" />
                                 <datalist id="province-parent-select"></datalist>
                             </div>
                         </div>
@@ -242,8 +242,8 @@
                             <div class="form-group">
                                 <label for="district_parent">อำเภอ/เขต</label>
                                 <input type="text" class="form-control" name="district_parent" id="district_parent"
-                                    placeholder="อำเภอ/เขต" list="district-parent-select"
-                                    onchange="districtSelect('district', 'sub-select')" />
+                                    placeholder="อำเภอ/เขต" list="district-parent-select" autocomplete="off"
+                                    onchange="districtSelect('district_parent', 'sub-parent-select')" />
                                 <datalist id="district-parent-select"></datalist>
                             </div>
                         </div>
@@ -252,9 +252,9 @@
                         <div class="col-sm">
                             <div class="form-group">
                                 <label for="sub_district_parent">แขวง/ตำบล</label>
-                                <input list="sub-select" class="form-control" disabled id="sub_district_parent"
+                                <input list="sub-parent-select" class="form-control" disabled id="sub_district_parent"
                                     placeholder="แขวง/ตำบล" autocomplete="off"
-                                    onchange="subDistrictSelect('sub_district', 'postcode')" />
+                                    onchange="subDistrictSelect('sub_district_parent', 'postcode_parent')" />
                                 <datalist id="sub-parent-select"></datalist>
                             </div>
                         </div>

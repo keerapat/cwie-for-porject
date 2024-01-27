@@ -99,7 +99,6 @@ function DropdownSub(sub_id, selectedValue) {
       });
     })
     .catch((error) => console.error("เกิดข้อผิดพลาด:", error));
-  console.log(dropdownElement);
 }
 
 function provinceSelect(province_id, district_id) {

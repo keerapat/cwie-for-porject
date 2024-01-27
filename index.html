@@ -233,7 +233,8 @@
                             <div class="form-group">
                                 <label for="province_parent">จังหวัด</label>
                                 <input type="text" class="form-control" name="province_parent" id="province_parent"
-                                    placeholder="จังหวัด" list="province-parent-select" onchange="" />
+                                    placeholder="จังหวัด" list="province-parent-select"
+                                    onchange="provinceSelect('province', 'district-select')" />
                                 <datalist id="province-parent-select"></datalist>
                             </div>
                         </div>
@@ -242,7 +243,7 @@
                                 <label for="district_parent">อำเภอ/เขต</label>
                                 <input type="text" class="form-control" name="district_parent" id="district_parent"
                                     placeholder="อำเภอ/เขต" list="district-parent-select"
-                                    onchange="amphureid('district_parent', 'sub-parent-select')" />
+                                    onchange="districtSelect('district', 'sub-select')" />
                                 <datalist id="district-parent-select"></datalist>
                             </div>
                         </div>
@@ -253,7 +254,7 @@
                                 <label for="sub_district_parent">แขวง/ตำบล</label>
                                 <input list="sub-select" class="form-control" disabled id="sub_district_parent"
                                     placeholder="แขวง/ตำบล" autocomplete="off"
-                                    onchange="zipcodeid('sub_district_parent', 'postcode_parent')" />
+                                    onchange="subDistrictSelect('sub_district', 'postcode')" />
                                 <datalist id="sub-parent-select"></datalist>
                             </div>
                         </div>
